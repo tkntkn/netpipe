@@ -22,3 +22,12 @@ examples includes:
 cargo run -- stdin stdout
 cargo run -- ws://192.168.100.30 localhost:8080
 ```
+
+## release memo
+release -> .zshrc 
+```
+cargo build --release
+export PATH=$PATH:$HOME/bin
+netpipe stdin stdout
+```
+
