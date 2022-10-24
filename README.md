@@ -1,14 +1,14 @@
 # netpipe
 UDP and WebSocket integration into Unix pipe
 
-### overview
+## overview
 
 forwarding data channel <IN> to channel <OUT>
 
 channels can be stdio, websocket, udp.
 
 
-### how to use
+## how to use
 
 syntax includes:
 ```
