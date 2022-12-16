@@ -124,6 +124,10 @@ impl Broker for WebSocketBroker {
                         );
                         return false;
                     }
+                    Err(Io(e)) if e.kind() == WouldBlock => {
+                        eprintln!("Err: WouldBlock in socket.write_message");
+                        return false;
+                    }
                     Err(Protocol(
                         tungstenite::error::ProtocolError::ResetWithoutClosingHandshake,
                     )) => {
