@@ -49,7 +49,11 @@ impl ReceiverCreator for UdpReceiverCreator {
             let mut buf = [0; 8192];
             let buf_size = socket.recv(&mut buf).unwrap();
             let buf = &buf[..buf_size];
-            tx.send(String::from_utf8(buf.to_vec()).unwrap()).unwrap();
+
+            let str = String::from_utf8_lossy(buf);
+            tx.send(str.to_string()).unwrap();
+
+            // tx.send(String::from_utf8_lossy(buf.to_vec()).unwrap()).unwrap();
         });
         return Box::new(rx.into_iter());
     }
